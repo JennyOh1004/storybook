@@ -9,10 +9,10 @@ type ButtonProps = {
   onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 
   /** 버튼의 생김새를 설정합니다. */
-  theme: "primary" | "secondary" | "tertiary";
+  theme: "primary" | "secondary" | "tertiary" | "social" | "shop";
 
   /** 버튼의 크기를 설정합니다 */
-  size: "small" | "medium" | "big";
+  size: "xsmall" | "small" | "medium" | "big";
 
   /** 버튼을 비활성화 합니다. */
   disabled?: boolean;
@@ -43,7 +43,7 @@ const Button = ({
 
 Button.defaultProps = {
   theme: "primary",
-  size: "medium",
+  size: "big",
 };
 
 const style = css`
@@ -53,8 +53,8 @@ const style = css`
   height: 2rem;
   font-size: 0.875rem;
   padding: 0.5rem 1rem;
-  background: #20c997;
-  color: white;
+  background: #252947;
+  color: #fff;
   border-radius: 0.25rem;
   line-height: 1;
   font-weight: 600;
@@ -78,34 +78,42 @@ const style = css`
 
 const themes = {
   primary: css`
-    background: #20c997;
-    color: white;
+    background: #252947;
+    color: #fff;
     &:hover:enabled {
-      background: #38d9a9;
+      background: #fff;
+      color: #252947;
+      border: solid 1px #252947;
+      transition: linear all 0.2s;
     }
     &:active:enabled {
-      background: #12b886;
+      background: #363950;
+      color: #fff;
     }
     &:disabled {
-      background: #aed9cc;
+      background: #a4a8ca;
     }
   `,
   secondary: css`
-    background: #e9ecef;
-    color: #343a40;
+    background: #fff;
+    color: #252947;
+    border: solid 1px #252947;
     &:hover:enabled {
-      background: #f1f3f5;
+      background: #252947;
+      color: #fff;
+      transition: linear all 0.2s;
     }
     &:active:enabled {
-      background: #dee2e6;
+      background: #f8f8f8;
+      color: #252947;
     }
     &:disabled {
       background: #c6d3e1;
     }
   `,
   tertiary: css`
-    background: none;
-    color: #20c997;
+    background: #252947;
+    color: #fff;
     &:hover:enabled {
       background: #e6fcf5;
     }
@@ -113,26 +121,89 @@ const themes = {
       background: #c3fae8;
     }
     &:disabled {
-      background: #bcd9d0;
+      background: #a4a8ca;
+    }
+  `,
+  social: css`
+    height: 48px;
+    width: 80px;
+    font-size: 0.6rem;
+    padding: 0 1rem;
+    border-radius: 20px;
+    letter-spacing: 1.5px;
+    background: #395185;
+    color: #fff;
+    &:hover:enabled {
+      background: #fff;
+      color: #395185;
+      transition: linear all 0.3s;
+      border: solid 1px #395185;
+    }
+    &:active:enabled {
+      background: #395185;
+      color: #fff;
+    }
+    &:disabled {
+      background: #bcc7de;
+    }
+  `,
+  shop: css`
+    height: 48px;
+    width: 80px;
+    font-size: 0.6rem;
+    padding: 0 1rem;
+    border-radius: 20px;
+    letter-spacing: 1.5px;
+    background: #303b8a;
+    color: #fff;
+    &:hover:enabled {
+      background: #fff;
+      color: #395185;
+      transition: linear all 0.3s;
+      border: solid 1px #395185;
+    }
+    &:active:enabled {
+      background: #303b8a;
+      color: #fff;
+    }
+    &:disabled {
+      background: #aab6ce;
     }
   `,
 };
 
 const sizes = {
+  xsmall: css`
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 0.1rem;
+    letter-spacing: 1px;
+  `,
   small: css`
     height: 1.75rem;
-    font-size: 0.75rem;
+    width: 80px;
+    font-size: 0.6rem;
     padding: 0 0.875rem;
+    border-radius: 20px;
+    letter-spacing: 1.5px;
   `,
   medium: css`
-    height: 2.5rem;
-    font-size: 1rem;
+    height: 48px;
+    width: 160px;
+    font-size: 0.6rem;
     padding: 0 1rem;
+    border-radius: 20px;
+    letter-spacing: 1.5px;
   `,
   big: css`
-    height: 3rem;
-    font-size: 1.125rem;
+    height: 48px;
+    width: 327px;
+    font-size: 0.6rem;
     padding: 0 1.5rem;
+    border-radius: 20px;
+    letter-spacing: 1.5px;
   `,
 };
 

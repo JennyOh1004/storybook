@@ -12,10 +12,10 @@ export default {
 
 export const button = () => {
   const label = text("children", "BUTTON");
-  const size = select("size", ["small", "medium", "big"], "medium");
+  const size = select("size", ["xsmall", "small", "medium", "big"], "medium");
   const theme = select(
     "theme",
-    ["primary", "secondary", "tertiary"],
+    ["primary", "secondary", "tertiary", "social", "shop"],
     "primary"
   );
   const disabled = boolean("disabled", false);
@@ -50,11 +50,21 @@ export const tertiaryButton = () => {
   return <Button theme="tertiary">TERTIARY</Button>;
 };
 
+export const socialButton = () => {
+  return <Button theme="social">SOCIAL</Button>;
+};
+
+export const shopButton = () => {
+  return <Button theme="shop">SHOP</Button>;
+};
+
 export const disabled = () => {
   return (
     <div css={buttonWrapper}>
       <div>
-        <Button disabled>PRIMART</Button>
+        <Button disabled theme="primary">
+          PRIMARY
+        </Button>
       </div>
 
       <div>
@@ -66,6 +76,18 @@ export const disabled = () => {
       <div>
         <Button disabled theme="tertiary">
           TERTIARY
+        </Button>
+      </div>
+
+      <div>
+        <Button disabled theme="social">
+          SOCIAL
+        </Button>
+      </div>
+
+      <div>
+        <Button disabled theme="shop">
+          SHOP
         </Button>
       </div>
     </div>
@@ -97,6 +119,11 @@ const buttonWrapper = css`
 export const sizes = () => {
   return (
     <div css={buttonWrapper}>
+      <div>
+        <div className="description">Xsmall</div>
+        <Button size="xsmall">BUTTON</Button>
+      </div>
+
       <div>
         <div className="description">Small</div>
         <Button size="small">BUTTON</Button>
