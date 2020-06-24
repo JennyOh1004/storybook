@@ -12,8 +12,8 @@ export default {
 
 export const title = () => {
   const size = select("size", ["h1", "h2", "h3", "paragraph"], "h1");
-
-  return <Title size={size}></Title>;
+  const title = text("title", "Login");
+  return <Title size={size}>{title}</Title>;
 };
 
 title.story = {

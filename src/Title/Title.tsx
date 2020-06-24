@@ -15,9 +15,8 @@ type TitleProps = {
 const Title = ({ children, onTitle, size }: TitleProps) => {
   return (
     <div>
-      <div className="title" css={[sizes[size]]}>
-        {onTitle}
-        {size}
+      <div className="title" onClick={onTitle} css={[sizes[size]]}>
+        {children}
       </div>
     </div>
   );
